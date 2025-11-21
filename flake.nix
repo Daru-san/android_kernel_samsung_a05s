@@ -56,6 +56,7 @@
                   ;
 
                 kernelSU.enable = false;
+                susfs.enable = false;
               };
               stock = {
                 inherit
