@@ -44,7 +44,7 @@
             in
             rec {
               default = stock;
-              kernelsu = {
+              stock = {
                 inherit
                   arch
                   clangVersion
@@ -60,7 +60,7 @@
                 kernelSU.enable = false;
                 susfs.enable = false;
               };
-              stock = {
+              kernelsu = {
                 inherit
                   arch
                   clangVersion
