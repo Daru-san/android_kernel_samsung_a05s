@@ -2089,7 +2089,7 @@ static ssize_t time_to_full_now_show(struct device *dev,
 	int ret = 0;
 	int bc12_type = 0;
 	int vbus_check = 0;
-	static vbus_count = 0;
+	static int vbus_count = 0;
 	static int gauge_type = 0;
 	rc = nopmi_chg_get_iio_channel(chg,NOPMI_CP, CHARGE_PUMP_SP_BUS_VOLTAGE, &vbus_check);
 	if (rc < 0) {
