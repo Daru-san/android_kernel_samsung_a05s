@@ -94,7 +94,7 @@ u32 hci_sock_get_cookie(struct sock *sk)
 {
 	return hci_pi(sk)->cookie;
 }
-/*
+
 static bool hci_sock_gen_cookie(struct sock *sk)
 {
 	int id = hci_pi(sk)->cookie;
@@ -121,7 +121,6 @@ static void hci_sock_free_cookie(struct sock *sk)
 		ida_simple_remove(&sock_cookie_ida, id);
 	}
 }
-*/
 static inline int hci_test_bit(int nr, const void *addr)
 {
 	return *((const __u32 *)addr + (nr >> 5)) & ((__u32)1 << (nr & 31));
@@ -528,7 +527,7 @@ static struct sk_buff *create_monitor_ctrl_open(struct sock *sk)
 		return NULL;
 	}
 
-	skb = bt_skb_alloc(14 + TASK_COMM_LEN , GFP_ATOMIC);
+	skb = bt_skb_alloc(14 + TASK_COMM_LEN, GFP_ATOMIC);
 	if (!skb)
 		return NULL;
 
@@ -618,9 +617,9 @@ static struct sk_buff *create_monitor_ctrl_command(struct sock *sk, u16 index,
 
 	return skb;
 }
-/*
+
 static void __printf(2, 3)
-send_monitor_note(struct sock *sk, const char *fmt, ...)
+	send_monitor_note(struct sock *sk, const char *fmt, ...)
 {
 	size_t len;
 	struct hci_mon_hdr *hdr;
@@ -657,7 +656,7 @@ static void send_monitor_replay(struct sock *sk)
 
 	read_lock(&hci_dev_list_lock);
 
-	list_for_each_entry(hdev, &hci_dev_list, list) {
+	list_for_each_entry (hdev, &hci_dev_list, list) {
 		struct sk_buff *skb;
 
 		skb = create_monitor_event(hdev, HCI_DEV_REG);
@@ -699,7 +698,7 @@ static void send_monitor_control_replay(struct sock *mon_sk)
 
 	read_lock(&hci_sk_list.lock);
 
-	sk_for_each(sk, &hci_sk_list.head) {
+	sk_for_each (sk, &hci_sk_list.head) {
 		struct sk_buff *skb;
 
 		skb = create_monitor_ctrl_open(sk);
@@ -712,7 +711,7 @@ static void send_monitor_control_replay(struct sock *mon_sk)
 
 	read_unlock(&hci_sk_list.lock);
 }
-*/
+
 /* Generate internal stack event */
 static void hci_si_event(struct hci_dev *hdev, int type, int dlen, void *data)
 {
@@ -890,7 +889,7 @@ static int hci_sock_release(struct socket *sock)
 	sock_put(sk);
 	return 0;
 }
-/*
+
 static int hci_sock_reject_list_add(struct hci_dev *hdev, void __user *arg)
 {
 	bdaddr_t bdaddr;
@@ -968,7 +967,7 @@ static int hci_sock_bound_ioctl(struct sock *sk, unsigned int cmd,
 
 	return -ENOIOCTLCMD;
 }
-*/
+
 static int hci_sock_ioctl(struct socket *sock, unsigned int cmd,
 			  unsigned long arg)
 {
