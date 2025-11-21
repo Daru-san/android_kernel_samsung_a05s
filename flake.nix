@@ -13,7 +13,7 @@
       ];
       systems = [ "x86_64-linux" ];
       perSystem =
-        { pkgs, ... }:
+        { pkgs, lib, ... }:
         {
           devShells.default = pkgs.mkShell {
             buildInputs = [
@@ -60,24 +60,35 @@
                 kernelSU.enable = false;
                 susfs.enable = false;
               };
-              kernelsu = {
-                inherit
-                  arch
-                  clangVersion
-                  kernelPatches
-                  kernelDefconfigs
-                  kernelSrc
-                  oemBootImg
-                  kernelImageName
-                  ;
+              kernelsu =
+                let
+                  patches = kernelPatches;
+                in
+                {
+                  inherit
+                    arch
+                    clangVersion
+                    kernelDefconfigs
+                    kernelSrc
+                    oemBootImg
+                    kernelImageName
+                    ;
 
-                anyKernelVariant = "kernelsu";
+                  kernelPatches = patches ++ [
+                    # Enabled PKM for sukisu-sufs
+                    # Only enabled when building kernelSU variant
+                    ./kernelsu.patch
+                  ];
 
-                kernelSU = {
-                  enable = true;
-                  variant = "sukisu-susfs";
+                  anyKernelVariant = "kernelsu";
+
+                  kernelSU = {
+                    enable = true;
+                    variant = "sukisu-susfs";
+                  };
+
+                  susfs.enable = lib.mkForce false;
                 };
-              };
             };
         };
     };
