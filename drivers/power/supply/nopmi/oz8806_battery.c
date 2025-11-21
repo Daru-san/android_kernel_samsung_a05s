@@ -754,7 +754,7 @@ void update_charge_cv(int32_t charge_cv)
 EXPORT_SYMBOL(update_charge_cv);
 
 // update charge cv base on cycle cnt
-static int32_t est_cycle_cv()
+static int32_t est_cycle_cv(void)
 {
     int32_t est_cv_voltage = 4350;
     int32_t cycle_cnt = 0;
