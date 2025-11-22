@@ -131,6 +131,23 @@
         "type": "github"
       }
     },
+    "kernelsu": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763207525,
+        "narHash": "sha256-QDZxMg7+Ij+9dh9vR/sQGM6OoIRR03nMwyq8WSU1sF0=",
+        "owner": "tiann",
+        "repo": "KernelSU",
+        "rev": "463afa7471b5a753d8bd989a5cb0dc781bfd986b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tiann",
+        "ref": "463afa7471b5a753d8bd989a5cb0dc781bfd986",
+        "repo": "KernelSU",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -315,6 +332,7 @@
     "root": {
       "inputs": {
         "flake-parts": "flake-parts",
+        "kernelsu": "kernelsu",
         "nix-kernelsu-builder": "nix-kernelsu-builder",
         "nixpkgs": "nixpkgs_2",
         "sufs4ksu": "sufs4ksu"
@@ -323,17 +341,17 @@
     "sufs4ksu": {
       "flake": false,
       "locked": {
-        "lastModified": 1763614289,
-        "narHash": "sha256-CtNttJ/kN48CfYC/QDWZgQHrUPC/IWxp40Zm0LefFpY=",
+        "lastModified": 1763266427,
+        "narHash": "sha256-lGu60J7vwn84vmcpx65MIW1RVkS4cMIPHf9kkvG6VuA=",
         "owner": "simonpunk",
         "repo": "susfs4ksu",
-        "rev": "12cf9c17212839fbb11251aee6f8e585fcb4e9f2",
+        "rev": "e27713beefb0fdec973c84004a2fb5f0738c75d2",
         "type": "gitlab"
       },
       "original": {
         "owner": "simonpunk",
-        "ref": "gki-android14-5.15",
         "repo": "susfs4ksu",
+        "rev": "e27713beefb0fdec973c84004a2fb5f0738c75d2",
         "type": "gitlab"
       }
     },
