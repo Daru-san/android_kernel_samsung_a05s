@@ -316,7 +316,25 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nix-kernelsu-builder": "nix-kernelsu-builder",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "sufs4ksu": "sufs4ksu"
+      }
+    },
+    "sufs4ksu": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763614289,
+        "narHash": "sha256-CtNttJ/kN48CfYC/QDWZgQHrUPC/IWxp40Zm0LefFpY=",
+        "owner": "simonpunk",
+        "repo": "susfs4ksu",
+        "rev": "12cf9c17212839fbb11251aee6f8e585fcb4e9f2",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "simonpunk",
+        "ref": "gki-android14-5.15",
+        "repo": "susfs4ksu",
+        "type": "gitlab"
       }
     },
     "systems": {
